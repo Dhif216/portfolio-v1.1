@@ -1,0 +1,70 @@
+.about-section {
+  min-height: 50vh;
+  background: #0e0e0e00;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30rem 1rem;
+  z-index: 1;
+}
+
+.about-title {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #b0d9ff;
+  letter-spacing: 1px;
+}
+
+.about-text {
+  max-width: 700px;
+  line-height: 1.7;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+}
+
+.highlight {
+  color: #b0d9ff;
+  font-weight: 600;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* centers badges in each row */
+  align-items: center;
+  width: 100%;
+}
+
+.skills span {
+  border: 1px solid #b0d9ff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  white-space: nowrap; /* prevent text from wrapping inside badge */
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* ensures each badge is centered in its "row" */
+  transition: all 0.3s ease;
+}
+
+
+
+.skills span:hover {
+  background: #b0d9ff;
+  color: #000;
+  transform: scale(1.05);
+}
+@media (max-width: 480px) {
+  .skills {
+    gap: 0.5rem;
+  }
+  .skills span {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

@@ -1,38 +1,225 @@
 .App {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Threads fullscreen */
+.threads-background {
+  position: fixed; /* cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* behind everything */
+}
+
+/* Pill Nav top center */
+.pill-nav-container {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Portfolio header */
+.portfolio-header {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  z-index: 5;
+  color: white;
+  text-align: left;
+}
+
+.portfolio-header h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.portfolio-header .dhif {
+  color: #aee6ff; /* ice blue */
+}
+
+.portfolio-header .mouadh {
+  color: #ffffff;
+}
+
+.portfolio-header .subtitle {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  /* Portfolio header */
+  .portfolio-header {
+    top: 10%;
+    left: 20px;
+    transform: none;
+  }
+
+  .portfolio-header h1 {
+    font-size: 3rem;
+  }
+
+  .portfolio-header .subtitle {
+    font-size: 1.2rem;
+  }
+
+  /* Pill Nav adjustment */
+  .pill-nav-container {
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-header {
+    top: 8%;
+    left: 15px;
+  }
+
+  .portfolio-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .portfolio-header .subtitle {
+    font-size: 1rem;
+  }
+
+  /* Make skill tags wrap nicely */
+  .skills {
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: flex-start;
+  }
+
+  /* Threads background stays full-screen */
+  .threads-background {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-header {
+    top: 5%;
+    left: 10px;
+  }
+
+  .portfolio-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .portfolio-header .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .skills span {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+.infinite-menu-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  background: transparent;
+  z-index: 1;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 40px 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.foggy-container {
+  position: relative;
+  z-index: 2;
+  background: transparent; /* remove black */
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 60px 0px;
+}
+
+
+
+.infinite-menu-container {
+  height: 600px; /* adjust based on your menu size */
+  position: relative;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+}
+
+.footer-logo {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+/* Fog effect starting from the About section */
+#about::after {
+  content: '';
+  position: absolute;
+  top: 20; /* starts at the top of About */
+  left: 0;
+  width: 100%;
+  height: 30%; /* cover entire About section */
   pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05); /* light foggy tint */
+  z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Ensure the About section creates its own stacking context */
+.about-section {
+  position: relative;
+  z-index: 1; /* content appears above the fog */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Make sure About section and below are on top of the Threads */
+.about-section,
+.skills,
+.stats,
+.projects,
+.infinite-menu-container,
+.experience-section,
+.contact-section {
+  position: relative;
+  z-index: 2; /* above Threads background */
 }

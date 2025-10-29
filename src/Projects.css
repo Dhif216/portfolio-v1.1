@@ -1,0 +1,36 @@
+.projects-section {
+  min-height: 40vh;
+  padding: 4rem 2rem;
+  background: #560aad1a;
+  color: #fff;
+  text-align: center;
+}
+
+.projects-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.projects-highlight {
+  color: #aee6ff; /* ice blue */
+}
+
+.projects-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1rem;
+  }
+}
