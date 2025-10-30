@@ -1,6 +1,6 @@
 .experience-section {
-  background: #560aad70;
-  color: #aa0e97;
+  background: #1a087e23;
+  color: #11e731;
   padding: 6rem 2rem;
   text-align: center;
   position: relative;
@@ -14,7 +14,7 @@
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #00ffff, #00b3ff);
+  background: linear-gradient(90deg, #00ffff, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

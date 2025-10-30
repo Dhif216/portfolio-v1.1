@@ -9,6 +9,8 @@ import Projects from './Projects';
 import InfiniteMenu from './InfiniteMenu';
 import Contact from "./Contact";
 import Footer from "./Footer";
+// 🔑 NEW: Import PixelCard component (assuming it is in the same directory, src/)
+import PixelCard from './PixelCard'; 
 
 import './Threads.css';
 import './PillNav.css';
@@ -84,7 +86,20 @@ function App() {
 
       {/* Foggy container starts from About */}
       <div className="foggy-container">
-        <About />      
+        {/* Profile Image Container */}
+        <div className="profile-image-container">
+          {/* 🔑 WRAPPER ADDED: Wrap the image with PixelCard */}
+          <PixelCard variant="blue" className="image-card"> 
+            <img
+              src="https://images.unsplash.com/photo-1695927621677-ec96e048dce2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735" // replace with your image URL
+              alt="Profile"
+              className="profile-image"
+            />
+          </PixelCard>
+        </div>
+
+        <About />   
+           
         <Skills />
         <Stats />
         <Projects />

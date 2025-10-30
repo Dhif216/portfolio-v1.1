@@ -113,6 +113,22 @@
     width: 100vw;
     height: 100vh;
   }
+
+  /* Mobile Fix: Adjust profile image container height and margin for small screens */
+  .profile-image-container {
+    height: 250px; /* Reserves space for the image */
+    margin-top: 150px; /* Adjusted margin to clear header/pill nav */
+  }
+
+  .profile-image {
+    width: 200px; /* Reduced image size for small screens */
+    height: 200px;
+     /* FIX: Keep image stacking context for small screens */
+     position: relative;
+     z-index: 2;
+     /* 🔑 NEW: Add opacity for visibility */
+     opacity: 0.9;
+  }
 }
 
 @media (max-width: 480px) {
@@ -190,6 +206,7 @@
   font-weight: bold;
   font-size: 1.8rem;
 }
+
 /* Fog effect starting from the About section */
 #about::after {
   content: '';
@@ -222,4 +239,29 @@
 .contact-section {
   position: relative;
   z-index: 2; /* above Threads background */
+}
+
+/* 🏆 FIX: Added explicit height to reserve space and fixed vertical offset */
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  /* Existing margin-top to push it down from the absolute/fixed elements above */
+  margin-top: 280px; 
+  margin-bottom: 5px; 
+  /* 🔑 FIX: Set height to reserve vertical space (350px image + margin/padding) */
+  height: 360px; 
+}
+
+.profile-image {
+  width: 350px;        /* adjust size */
+  height: 350px;       /* same as width for perfect circle */
+  border-radius: 50%;  /* makes it round */
+  object-fit: cover;   /* ensures image covers the circle */
+  border: 3px solid rgba(61, 210, 243, 0.5); /* optional border */
+  box-shadow: 0 4px 15px rgba(11, 118, 156, 0.3);     /* subtle shadow */
+  /* 🔑 FIX: Ensure image stacks above the animated canvas */
+  position: relative; 
+  z-index: 2; 
+  /* 🔑 NEW FIX: Add opacity to allow pixel animation to show through */
+  opacity: 50%;
 }
